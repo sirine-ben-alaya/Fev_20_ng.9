@@ -1,0 +1,97 @@
+<p>container works!</p>
+
+<!-- string interpolation -->
+{{titre}}
+
+<!-- property binding -->
+<input [value]="varExemple" />
+
+<!-- event binding -->
+<button (click)="callFn()"> Click !!! </button>
+
+<!-- two way binding -->
+<button (click)="decrement()" class="btn btn-danger">-</button>
+<span>{{counter}}</span>
+<button (click)="Increment()" class="btn btn-success">+</button>
+
+<hr>
+
+<!-- two way binding -->
+<input [(ngModel)]="username"> <button (click)="Fn()">get data</button>
+<p> Hello {{username}}! </p>
+
+
+<!-- exercice -->
+
+<div class="form-group">
+    <label>Name</label>
+    <input class="form-control" [(ngModel)]="name">
+</div>
+
+
+<div class="form-group">
+    <label>Phone</label>
+    <!-- on met le nom de la variable déclarée dans le fichier .ts -->
+    <input class="form-control" [(ngModel)]="phone">
+</div>
+
+
+<div class="form-group" *ngIf="name=='sirine'">
+    <label>Email</label>
+    <input class="form-control" [(ngModel)]="email">
+</div>
+
+
+
+<div class="form-group">
+    <label>About</label>
+    <input class="form-control" [(ngModel)]="about">
+</div>
+
+<button (click)="save()" class="btn btn-info">SAVE</button>
+
+<table class="table">
+    <!-- la structure de table -->
+    <thead>
+        <tr>
+            <th> ID</th>
+            <th> NAME</th>
+        </tr>
+        <tr>
+            <input [(ngModel)]="keyname"/>
+        </tr>
+    </thead>
+    <!-- le contenu du tableau -->
+    <tbody>
+        <tr *ngFor="let item of HEROES |search: keyname" [ngClass]="{rouge:item.id==1,noir:item.id==2,jaune:item.id==4}">
+            <td>
+                {{item.id}}
+            </td>
+            <td>
+                {{item.name}}
+            </td>
+    </tbody>
+</table>
+
+
+<!-- exercice pour remplir un tableau vide lorsqu'on clique sur save -->
+<table class="table">
+    <!-- la structure de table -->
+    <thead>
+        <tr>
+            <th> NOM&PRENOM</th>
+            <th> EMAIL</th>
+        </tr>
+    </thead>
+    <!-- le contenu du tableau -->
+    <tbody>
+        <tr *ngFor="let item of USERS">
+            <td>
+                {{item.Name}}
+            </td>
+            <td>
+                {{item.Email}}
+            </td>
+            
+    </tbody>
+</table>

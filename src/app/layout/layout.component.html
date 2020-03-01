@@ -1,0 +1,26 @@
+
+<app-navbar></app-navbar>
+<!-- <p>layout works!</p>
+
+<app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+<app-container></app-container>
+<app-footer></app-footer> -->
+
+<div dir ="{{'direction'|translate}}">
+<div class="row">
+<div  class="col-sm-3">
+    <app-sidebar></app-sidebar>
+
+</div>
+
+<div  class="col-sm-9">
+    <!-- <app-container></app-container> -->
+    <router-outlet></router-outlet>
+
+</div>
+
+</div>
+<app-footer></app-footer>
+
+</div>

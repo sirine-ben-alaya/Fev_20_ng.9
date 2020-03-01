@@ -1,0 +1,47 @@
+<!-- <p>dashboard works!</p> -->
+<div class="container">
+
+<div class="spinner-border" *ngIf="loading"></div>
+<h1>{{'title'|translate}}</h1>
+<h5>{{'msg'|translate}}</h5>
+<table class="table">
+    <!-- la structure de table -->
+    <thead>
+        <tr>
+            <th> Titre</th>
+            <th> Descrption</th>
+            <th> Contrat</th>
+            <th> Salaire</th>
+            <th> Action</th>
+        </tr>
+        <tr>
+            <th> <input class="form-control" placeholder="search title" [(ngModel)]="titleSearch" ></th>
+            <th> <input class="form-control" placeholder="search description" [(ngModel)]="descriptionSearch" ></th>
+            <th> <input class="form-control" placeholder="search Contrat" [(ngModel)]="contractSearch" ></th>
+        </tr>
+  
+    </thead>
+    <!-- le contenu du tableau -->
+    <tbody>
+        <tr *ngFor="let post of posts | searchMulti:titleSearch:descriptionSearch:contractSearch">
+            <td>
+                {{post.title}}
+            </td>
+            <td>
+                {{post.description}}
+            </td>
+            <td>
+                {{post.contract_type}}
+            </td>
+            <td>
+                {{post.salaire}}
+            </td>
+
+            <td>
+                <button class="btn btn-danger" (click)= "delete(post)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                <button class="btn btn-info" (click)= "edit(post)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            </td>
+        </tr> 
+    </tbody>
+</table>
+</div>
